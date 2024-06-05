@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file if you have one -->
+    <style>
+        /* Basic styling for the login form */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Increased width */
+        }
+        .login-container h2 {
+            margin-bottom: 30px;
+            font-size: 24px; /* Increased font size */
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 15px; /* Increased padding */
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px; /* Increased font size */
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 15px; /* Increased padding */
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px; /* Increased font size */
+            cursor: pointer;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form onsubmit="return validateLogin()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if (username === 'admin' && password === 'admin') {
+                alert('Login successful');
+                // Redirect to the PHP dashboard
+                window.location.href = 'dashboard.php';
+                return false;
+            } else {
+                alert('Invalid username or password');
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
